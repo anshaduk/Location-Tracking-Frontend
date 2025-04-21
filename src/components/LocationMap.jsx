@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import api from '../services/api';
 import WebSocketInstance from '../services/websocket';
-import { UserContext } from '../context/UserContext'; // Correct import
+import { UserContext } from '../context/UserContext'; 
 
 // Fix for Leaflet default icons
 delete L.Icon.Default.prototype._getIconUrl;
@@ -15,7 +15,7 @@ L.Icon.Default.mergeOptions({
 });
 
 const LocationMap = ({ selectedUsers, showHistory }) => {
-  const { user } = useContext(UserContext);  // Assuming userContext holds user data
+  const { user } = useContext(UserContext);  
   const [locations, setLocations] = useState([]);
   const [historyData, setHistoryData] = useState({});
   const [mapCenter, setMapCenter] = useState([74.8, 12.8]);
@@ -39,10 +39,10 @@ const LocationMap = ({ selectedUsers, showHistory }) => {
 
     fetchLocations();
 
-    // Connect to WebSocket for real-time updates
+    
     WebSocketInstance.connect();
 
-    // Use user.id if available
+    
     WebSocketInstance.addCallback('locationMap', (data) => handleLocationUpdate(data, user?.id));
 
     return () => {
@@ -51,7 +51,7 @@ const LocationMap = ({ selectedUsers, showHistory }) => {
     };
   }, [user?.id]);
 
-  // Handle WebSocket location updates
+
   const handleLocationUpdate = (data, userId) => {
     if (!data || !data.geometry || !data.properties || !userId) return;
 
@@ -70,7 +70,7 @@ const LocationMap = ({ selectedUsers, showHistory }) => {
     });
   };
 
-  // Fetch historical data for selected users
+  
   useEffect(() => {
     const fetchHistoryForUsers = async () => {
       if (!showHistory || selectedUsers.length === 0) {

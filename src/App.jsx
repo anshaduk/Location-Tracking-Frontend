@@ -4,7 +4,7 @@ import LocationMap from './components/LocationMap';
 import UserSelection from './components/UserSelection';
 import LocationSimulator from './components/LocationSimulator';
 import api from './services/api';
-import { UserProvider } from './context/UserContext'; // Import UserProvider
+import { UserProvider } from './context/UserContext'; 
 
 function App() {
   const [selectedUsers, setSelectedUsers] = useState([]);
@@ -33,7 +33,7 @@ function App() {
   };
 
   return (
-    <UserProvider> {/* Wrap the app with UserProvider */}
+    <UserProvider> 
       <Container maxWidth="lg">
         <Box sx={{ my: 4 }}>
           <Typography variant="h3" component="h1" gutterBottom align="center">

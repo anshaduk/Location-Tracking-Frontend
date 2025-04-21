@@ -1,18 +1,17 @@
 import React, { createContext, useState, useContext } from 'react';
 
-// Create a UserContext
 export const UserContext = createContext();
 
-// Create a UserProvider component
+
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const loginUser = (userData) => {
-    setUser(userData); // Set the user data when logged in
+    setUser(userData); 
   };
 
   const logoutUser = () => {
-    setUser(null); // Clear user data when logged out
+    setUser(null); 
   };
 
   return (
@@ -22,5 +21,4 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-// Create a custom hook to use UserContext
 export const useUser = () => useContext(UserContext);

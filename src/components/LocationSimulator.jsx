@@ -33,7 +33,7 @@ const LocationSimulator = ({ users }) => {
         return;
       }
     
-      // Removed the token parameter that was causing the error
+      
       await api.updateLocation(
         parseFloat(latitude),
         parseFloat(longitude),
